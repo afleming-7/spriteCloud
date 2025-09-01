@@ -1,0 +1,25 @@
+{
+  "name": "spritecloud",
+  "version": "1.0.0",
+  "description": "Programming test for spriteCloud",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afleming-7/spriteCloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/afleming-7/spriteCloud/issues"
+  },
+  "homepage": "https://github.com/afleming-7/spriteCloud#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "allure-commandline": "^2.34.1",
+    "allure-playwright": "^3.3.3"
+  }
+}
