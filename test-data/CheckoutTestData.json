@@ -1,0 +1,10 @@
+{
+  "username": "standard_user",
+  "password": "secret_sauce",
+  "productName1": "Sauce Labs Bolt T-Shirt",
+  "productName2": "Sauce Labs Bike Light",
+  "firstName": "Jane",
+  "lastName": "McMillan",
+  "zipCode": "34367",
+  "price": 28.06
+}

@@ -5,12 +5,21 @@ import { defineConfig } from "@playwright/test";
 export default defineConfig({
   testDir: "./tests",
   timeout: 30000,
-  retries: 1,
-  reporter: [["line"], ["allure-playwright"]],
-  use: {
-    headless: true,
-    baseURL: "https://www.saucedemo.com",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
+  expect: {
+    timeout: 5000,
   },
+  retries: 1,
+  reporter: "html",
+  projects: [
+    {
+      name: "chrome",
+      use: {
+        browserName: "chromium",
+        baseURL: "https://www.saucedemo.com",
+        headless: false,
+        screenshot: "only-on-failure",
+        trace: "on", //off,on
+      },
+    },
+  ],
 });
