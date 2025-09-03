@@ -14,11 +14,11 @@ test("@UI Full checkout flow with two items and price validation", async ({
 
   // Step 1: Login
   await loginPage.goto();
-  await loginPage.login(testData.username, testData.password); // Use known valid credentials
+  await loginPage.login(testData.username, testData.password);
 
   // Step 2: Add two items to cart
-  await inventoryPage.addItemToCart(testData.productName1); // Add first item
-  await inventoryPage.addItemToCart(testData.productName2); // Add second item
+  await inventoryPage.addItemToCart(testData.productName1);
+  await inventoryPage.addItemToCart(testData.productName2);
 
   // Step 3: Go to cart
   await inventoryPage.goToCart();
@@ -35,4 +35,7 @@ test("@UI Full checkout flow with two items and price validation", async ({
 
   // Step 6: Complete purchase
   await cartPage.completePurchase();
+
+  //Step 7: Validate Checkout is Successful
+  await cartPage.assertCheckoutSuccessful();
 });

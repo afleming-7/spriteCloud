@@ -10,6 +10,7 @@ export class CartPage {
     this.continueButton = page.locator('[data-test="continue"]');
     this.finishButton = page.locator('[data-test="finish"]');
     this.totalPrice = page.locator(".summary_total_label");
+    this.checkoutSuccessMessage = page.locator(".complete-header");
   }
 
   async checkout(firstName, lastName, postalCode) {
@@ -28,5 +29,12 @@ export class CartPage {
     const text = await this.totalPrice.textContent();
     const actualPrice = parseFloat(text.replace("Total: $", ""));
     expect(actualPrice).toBeCloseTo(expectedPrice, 2);
+  }
+
+  async assertCheckoutSuccessful() {
+    await expect(this.checkoutSuccessMessage).toBeVisible();
+    await expect(this.checkoutSuccessMessage).toContainText(
+      "Thank you for your order!"
+    );
   }
 }
