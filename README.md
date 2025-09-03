@@ -6,7 +6,7 @@ Programming test for spriteCloud.
 
 # SauceDemo & ReqRes Automation Tests
 
-## 🧪 Overview
+## Overview
 
 This repository contains automated **UI and API tests** for:
 
@@ -17,9 +17,9 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
-- [Setup](#️setup)
+- [Setup](#setup)
 - [Project Structure](#project-structure)
 - [Running Tests](#running-tests)
 - [Reports](#reports)
@@ -28,13 +28,13 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
 
 ---
 
-## ⚙️ Setup
+## Setup
 
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/<your-username>/sauce-reqres-tests.git
-   cd sauce-reqres-tests
+   git clone https://github.com/afleming-7/spriteCloud.git
+   cd spriteCloud
    ```
 
 2. **Install dependencies:**
@@ -51,10 +51,10 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
-sauce-reqres-tests/
+spriteCloud/
 ├── tests/
 │   ├── ui/                # UI test specs
 │   └── api/               # API test specs
@@ -72,7 +72,7 @@ sauce-reqres-tests/
 
 ---
 
-## ▶️ Running Tests
+## Running Tests
 
 1. **Run all tests:**
 
@@ -83,7 +83,7 @@ sauce-reqres-tests/
 2. **Run a single test file:**
 
    ```bash
-   npx playwright test tests/ui/checkout.spec.js
+   npx playwright test tests/ui/Checkout.spec.js
    ```
 
 3. **Run UI tests only:**
@@ -124,7 +124,7 @@ sauce-reqres-tests/
 
 ---
 
-## 📊 Reports
+## Reports
 
 - **Allure** is used for reporting.
 - Reports include:
@@ -135,7 +135,7 @@ sauce-reqres-tests/
 
 ---
 
-## 📌 Assumptions
+## Assumptions
 
 - SauceDemo credentials: `standard_user / secret_sauce`
 - Checkout total price and item prices are based on current website data.
@@ -144,7 +144,7 @@ sauce-reqres-tests/
 
 ---
 
-## 🤖 AI Usage
+## AI Usage
 
-- Some test skeletons, project structure, and this documentation were generated with **OpenAI ChatGPT** to accelerate development.
+- Some test skeletons and this documentation were generated with **OpenAI ChatGPT** to accelerate development.
 - All logic, validations, and assertions were **reviewed and implemented manually**.
