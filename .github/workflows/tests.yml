@@ -8,29 +8,57 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
-
+    runs-on: windows-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # Checkout the repo
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      # Set up Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18"
+          node-version: 22
 
+      # Clean old Allure results before running tests
+      - name: Clean old Allure results
+        shell: pwsh
+        run: |
+          if (Test-Path "allure-results") { Remove-Item "allure-results" -Recurse -Force }
+          if (Test-Path "allure-report") { Remove-Item "allure-report" -Recurse -Force }
+
+      # Install dependencies
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
+      # Install Playwright browsers
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
+      # Run Playwright tests with Allure reporter
       - name: Run tests
-        run: npx playwright test
+        run: npx playwright test --reporter=line,allure-playwright
 
+      # Upload raw Allure results
       - name: Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
           name: allure-results
           path: allure-results
+          if-no-files-found: ignore
+
+      # Generate Allure HTML report and upload
+      - name: Generate Allure HTML report
+        shell: pwsh
+        run: |
+          npm install -g allure-commandline
+          if (Test-Path "allure-report") { Remove-Item "allure-report" -Recurse -Force }
+          npx allure-commandline generate ./allure-results --clean -o ./allure-report
+          npx allure-commandline open ./allure-report &
+
+      # Upload Allure HTML report as artifact (optional)
+      - name: Upload Allure HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
           if-no-files-found: ignore

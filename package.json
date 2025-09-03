@@ -4,8 +4,9 @@
   "description": "Programming test for spriteCloud",
   "main": "index.js",
   "scripts": {
+    "cleanReports": "node -e \"import('fs').then(fs=>{fs.rmSync('allure-results',{recursive:true,force:true});fs.rmSync('allure-report',{recursive:true,force:true});})\"",
     "test": "npx playwright test",
-    "webTests": "npx playwright test --grep @WEB",
+    "UITests": "npx playwright test --grep @UI",
     "APITests": "npx playwright test --grep @API",
     "chromeConfig": "npx playwright test --config playwright.config.js --project=chrome",
     "firefoxConfig": "npx playwright test --config playwright.config.js --project=firefox",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "allure-commandline": "^2.34.1",
-    "allure-playwright": "^3.3.3"
+    "allure-playwright": "^3.3.3",
+    "rimraf": "^6.0.1"
   }
 }

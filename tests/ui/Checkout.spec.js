@@ -4,7 +4,7 @@ const testData = JSON.parse(
   JSON.stringify(require("../../test-data/CheckoutTestData.json"))
 );
 
-test("@WEB Full checkout flow with two items and price validation", async ({
+test("@UI Full checkout flow with two items and price validation", async ({
   page,
 }) => {
   const poManager = new POManager(page);
