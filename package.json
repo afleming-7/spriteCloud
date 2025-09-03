@@ -4,13 +4,14 @@
   "description": "Programming test for spriteCloud",
   "main": "index.js",
   "scripts": {
-    "cleanReports": "node -e \"import('fs').then(fs=>{fs.rmSync('allure-results',{recursive:true,force:true});fs.rmSync('allure-report',{recursive:true,force:true});})\"",
-    "test": "npx playwright test",
-    "UITests": "npx playwright test --grep @UI",
-    "APITests": "npx playwright test --grep @API",
-    "chromeConfig": "npx playwright test --config playwright.config.js --project=chrome",
-    "firefoxConfig": "npx playwright test --config playwright.config.js --project=firefox",
-    "report": "allure generate ./allure-results --clean -o ./allure-report && allure open ./allure-report"
+    "clean:reports": "rimraf allure-results allure-report test-results",
+    "test": "playwright test",
+    "test:ui": "playwright test --grep @UI",
+    "test:api": "playwright test --grep @API",
+    "test:chrome": "playwright test --config=playwright.config.ts --project=chrome",
+    "test:firefox": "playwright test --config=playwright.config.ts --project=firefox",
+    "report:allure": "allure generate ./allure-results --clean -o ./allure-report && allure open ./allure-report",
+    "typecheck": "tsc --noEmit"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,9 @@
     "@playwright/test": "^1.55.0",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.3",
-    "rimraf": "^6.0.1"
+    "rimraf": "^6.0.1",
+    "typescript": "^5.9.2",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.11.0"
   }
 }
