@@ -1,6 +1,0 @@
-import { test, expect } from "@playwright/test";
-
-test("Perform a deletion", async ({ request }) => {
-  const response = await request.delete("https://reqres.in/api/users/2");
-  expect(response.status()).toBe(204);
-});

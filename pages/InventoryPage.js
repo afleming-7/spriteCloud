@@ -4,13 +4,12 @@ export class InventoryPage {
   constructor(page) {
     this.page = page;
     this.inventoryItems = page.locator(".inventory_item");
-    this.sortDropdown = page.locator('[data-test="product_sort_container"]');
+    this.sortDropdown = page.locator(".product_sort_container");
     this.addToCartButtons = page.locator('button:has-text("Add to cart")');
     this.cartLink = page.locator(".shopping_cart_link");
   }
 
   async addItemToCart(productName) {
-    //const itemNames = await this.inventoryItems.locator(".inventory_item_name").allTextContents();
     const count = await this.inventoryItems.count();
     for (let i = 0; i < count; ++i) {
       if (
