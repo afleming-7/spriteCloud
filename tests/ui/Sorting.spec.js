@@ -1,13 +1,13 @@
 import { test } from "@playwright/test";
-const { POManager } = require("../../pages/POManager");
+const { PageObjectModel } = require("../../pages/PageObjectModel");
 const testData = JSON.parse(
   JSON.stringify(require("../../test-data/SortingTestData.json"))
 );
 
 test("@UI Sort items by name Z-A and validate sorting", async ({ page }) => {
-  const poManager = new POManager(page);
-  const loginPage = poManager.getLoginPage();
-  const inventoryPage = poManager.getInventoryPage();
+  const pageObjectModel = new PageObjectModel(page);
+  const loginPage = pageObjectModel.getLoginPage();
+  const inventoryPage = pageObjectModel.getInventoryPage();
 
   // Step 1: Login
   await loginPage.goto();

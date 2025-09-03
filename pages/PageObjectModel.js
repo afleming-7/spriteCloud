@@ -2,7 +2,7 @@ const { LoginPage } = require("./LoginPage");
 const { InventoryPage } = require("./InventoryPage");
 const { CartPage } = require("./CartPage");
 
-class POManager {
+class PageObjectModel {
   constructor(page) {
     this.page = page;
     this.loginPage = new LoginPage(this.page);
@@ -22,4 +22,4 @@ class POManager {
     return this.inventoryPage;
   }
 }
-module.exports = { POManager };
+module.exports = { PageObjectModel };
