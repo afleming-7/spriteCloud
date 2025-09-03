@@ -3,7 +3,7 @@ import { createApiContext } from "../../utils/APIClient.js";
 
 const API_BASE = "https://reqres.in/api";
 
-test("Negative: login fails without password", async () => {
+test("@API Negative: login fails without password", async () => {
   const context = await createApiContext();
   const response = await context.post(`${API_BASE}/login`, {
     data: { email: "eve.holt@reqres.in" },

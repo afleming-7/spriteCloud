@@ -3,7 +3,7 @@ import { createApiContext } from "../../utils/APIClient.js";
 
 const API_BASE = "https://reqres.in/api";
 
-test("Perform a deletion", async () => {
+test("@API Perform a deletion", async () => {
   const context = await createApiContext();
   const response = await context.delete(`${API_BASE}/users/2`);
 

@@ -3,7 +3,7 @@ import { createApiContext } from "../../utils/APIClient.js";
 
 const API_BASE = "https://reqres.in/api";
 
-test("Delayed request (max 3s)", async () => {
+test("@API Delayed request (max 3s)", async () => {
   const context = await createApiContext();
   const start = Date.now();
 

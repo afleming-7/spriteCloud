@@ -3,7 +3,7 @@ import { createApiContext } from "../../utils/APIClient.js";
 
 const API_BASE = "https://reqres.in/api";
 
-test("Retrieve a list of users", async () => {
+test("@API Retrieve a list of users", async () => {
   const context = await createApiContext();
   const response = await context.get(`${API_BASE}/users?page=2`);
 

@@ -4,7 +4,7 @@ const testData = JSON.parse(
   JSON.stringify(require("../../test-data/LoginFailTestData.json"))
 );
 
-test("Login fails with invalid credentials", async ({ page }) => {
+test("@WEB Login fails with invalid credentials", async ({ page }) => {
   const poManager = new POManager(page);
   const loginPage = poManager.getLoginPage();
 
