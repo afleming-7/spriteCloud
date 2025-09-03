@@ -16,7 +16,7 @@ export default defineConfig({
       use: {
         browserName: "chromium",
         baseURL: "https://www.saucedemo.com",
-        headless: false,
+        headless: true,
         screenshot: "only-on-failure",
         trace: "on", //off,on
       },
