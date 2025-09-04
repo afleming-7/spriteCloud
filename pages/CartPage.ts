@@ -35,15 +35,21 @@ export class CartPage {
     await this.finishButton.click();
   }
 
+  async assertItemInCart(productName: string) {
+    const item = this.page.locator(
+      `.inventory_item_name:has-text("${productName}")`
+    );
+    await expect(item).toBeVisible();
+  }
+
   async assertTotalPrice(expectedPrice: number) {
-    const text: any = await this.totalPrice.textContent();
-    const actualPrice = parseFloat(text.replace("Total: $", ""));
-    expect(actualPrice).toBeCloseTo(expectedPrice, 2);
+    await expect(this.totalPrice).toHaveText(
+      `Total: $${expectedPrice.toFixed(2)}`
+    );
   }
 
   async assertCheckoutSuccessful() {
-    await expect(this.checkoutSuccessMessage).toBeVisible();
-    await expect(this.checkoutSuccessMessage).toContainText(
+    await expect(this.checkoutSuccessMessage).toHaveText(
       "Thank you for your order!"
     );
   }

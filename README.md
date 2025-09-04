@@ -49,6 +49,12 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
    npx playwright install --with-deps
    ```
 
+4. **Install Allure reporting:**
+
+   ```bash
+   npm install allure-playwright allure-commandline
+   ```
+
 ---
 
 ## Project Structure

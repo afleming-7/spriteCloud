@@ -28,12 +28,16 @@ test("@UI Full checkout flow with two items and price validation", async ({
     testData.zipCode
   );
 
-  // Step 5: Validate total price
+  // Step 5: Validate items in cart
+  await cartPage.assertItemInCart(testData.productName1);
+  await cartPage.assertItemInCart(testData.productName2);
+
+  // Step 6: Validate total price
   await cartPage.assertTotalPrice(testData.price);
 
-  // Step 6: Complete purchase
+  // Step 7: Complete purchase
   await cartPage.completePurchase();
 
-  //Step 7: Validate Checkout is Successful
+  //Step 8: Validate Checkout is Successful
   await cartPage.assertCheckoutSuccessful();
 });
