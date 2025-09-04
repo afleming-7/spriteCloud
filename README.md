@@ -61,6 +61,12 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
    npm install @cucumber/cucumber
    ```
 
+6. **Add file removal:**
+
+   ```bash
+   npm i -D rimraf
+   ```
+
 ---
 
 ## Project Structure
