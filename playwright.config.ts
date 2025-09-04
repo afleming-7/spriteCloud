@@ -14,8 +14,7 @@ export default defineConfig({
     {
       name: "chrome",
       use: {
-        ...devices["Desktop Chrome"], // Built-in device config
-        baseURL: "https://www.saucedemo.com",
+        ...devices["Desktop Chrome"],
         headless: true,
         screenshot: "only-on-failure",
         video: "retain-on-failure",
@@ -26,7 +25,6 @@ export default defineConfig({
       name: "firefox",
       use: {
         ...devices["Desktop Firefox"],
-        baseURL: "https://www.saucedemo.com",
         headless: true,
         screenshot: "only-on-failure",
         trace: "on",

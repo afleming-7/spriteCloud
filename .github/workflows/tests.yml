@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: Playwright & Cucumber Tests
 
 on:
   push:
@@ -10,39 +10,43 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      # Checkout the repo
+      # 1. Checkout the repo
       - uses: actions/checkout@v4
 
-      # Set up Node.js
+      # 2. Set up Node.js
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      # Clean old Allure results before running tests
+      # 3. Clean old Allure results before running tests
       - name: Clean old Allure results
         shell: pwsh
         run: |
           if (Test-Path "allure-results") { Remove-Item "allure-results" -Recurse -Force }
           if (Test-Path "allure-report") { Remove-Item "allure-report" -Recurse -Force }
 
-      # Install dependencies
+      # 4. Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Install Playwright browsers
+      # 5. Install Playwright browsers
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      # Run TypeScript type check before tests
+      # 6. Run TypeScript type check
       - name: TypeScript Type Check
         run: npm run typecheck
 
-      # Run Playwright tests with Allure reporter
-      - name: Run tests
+      # 7. Run Playwright tests with Allure reporter
+      - name: Run Playwright tests
         run: npx playwright test --reporter=line,allure-playwright --config=playwright.config.ts
 
-      # Upload raw Allure results
+      # 8. Run Cucumber demo tests
+      - name: Run Cucumber tests
+        run: npm run test:cucumber
+
+      # 9. Upload raw Allure results
       - name: Upload Allure Results
         uses: actions/upload-artifact@v4
         with:
@@ -50,16 +54,16 @@ jobs:
           path: allure-results
           if-no-files-found: ignore
 
-      # Generate Allure HTML report and upload
+      # 10. Generate Allure HTML report and open (optional)
       - name: Generate Allure HTML report
         shell: pwsh
         run: |
           npm install -g allure-commandline
           if (Test-Path "allure-report") { Remove-Item "allure-report" -Recurse -Force }
-          npx allure-commandline generate ./allure-results --clean -o ./allure-report
-          npx allure-commandline open ./allure-report &
+          npx allure generate ./allure-results --clean -o ./allure-report
+          npx allure open ./allure-report &
 
-      # Upload Allure HTML report as artifact (optional)
+      # 11. Upload Allure HTML report as artifact
       - name: Upload Allure HTML Report
         uses: actions/upload-artifact@v4
         with:

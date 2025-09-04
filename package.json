@@ -4,14 +4,15 @@
   "description": "Programming test for spriteCloud",
   "main": "index.js",
   "scripts": {
-    "clean:reports": "rimraf allure-results allure-report test-results",
-    "test": "playwright test",
-    "test:ui": "playwright test --grep @UI",
-    "test:api": "playwright test --grep @API",
-    "test:chrome": "playwright test --config=playwright.config.ts --project=chrome",
-    "test:firefox": "playwright test --config=playwright.config.ts --project=firefox",
-    "report:allure": "allure generate ./allure-results --clean -o ./allure-report && allure open ./allure-report",
-    "typecheck": "tsc --noEmit"
+    "cleanReports": "node -e \"import('fs').then(fs=>{fs.rmSync('allure-results',{recursive:true,force:true});fs.rmSync('allure-report',{recursive:true,force:true});})\"",
+    "typecheck": "tsc --noEmit",
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test --grep @UI",
+    "test:api": "npx playwright test --grep @API",
+    "chromeConfig": "npx playwright test --config playwright.config.ts --project=chrome",
+    "firefoxConfig": "npx playwright test --config playwright.config.ts --project=firefox",
+    "report": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report",
+    "test:cucumber": "cucumber-js tests-cucumber/features/**/*.feature --require-module ts-node/register --require tests-cucumber/steps/**/*.ts --require tests-cucumber/support/hooks.ts"
   },
   "repository": {
     "type": "git",
@@ -25,10 +26,13 @@
   },
   "homepage": "https://github.com/afleming-7/spriteCloud#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
     "@playwright/test": "^1.55.0",
     "@types/node": "^20.11.0",
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.3",
+    "cucumber-html-reporter": "^7.2.0",
+    "playwright": "^1.55.0",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"

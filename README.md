@@ -52,7 +52,13 @@ Tests are implemented in **JavaScript** using **Playwright**, with a **Page Obje
 4. **Install Allure reporting:**
 
    ```bash
-   npm install allure-playwright allure-commandline
+   npm install --save-dev allure-commandline
+   ```
+
+5. **Install Cucumber:**
+
+   ```bash
+   npm install @cucumber/cucumber
    ```
 
 ---
@@ -64,6 +70,10 @@ spriteCloud/
 ├── tests/
 │   ├── ui/                      # UI test specs
 │   └── api/                     # API test specs
+├── tests-cucumber/              # Demo Cucumber feature files and steps
+│   ├── features/                # .feature files
+│   ├── steps/                   # Step definitions
+│   └── support/                 # Hooks (page/browser setup)
 ├── pages/                       # Page Object Model classes
 ├── utils/                       # Utility files (e.g., API client)
 ├── test-data                    # Data required for ui test inputs
@@ -106,22 +116,23 @@ spriteCloud/
    npm run test:api
    ```
 
-5. **Run tests using Chrome configuration only:**
+5. **Run Cucumber demo tests only:**
+
+   ```bash
+   npm run test:cucumber
+   ```
+
+6. **Run Browser-specific tests:**
 
    ```bash
    npm run test:chrome
-   ```
-
-6. **Run tests using Firefox configuration only:**
-
-   ```bash
    npm run test:firefox
    ```
 
 7. **Generate reports:**
 
    ```bash
-   npm run report:allure
+   npm run report
    ```
 
 8. **Clean reports folder:**
