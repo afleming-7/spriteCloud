@@ -4,8 +4,8 @@ declare global {
     password: string;
   }
   interface CheckoutTestData extends BaseTestData {
-    productName1: string;
-    productName2: string;
+    product1: string;
+    product2: string;
     firstName: string;
     lastName: string;
     zipCode: string;

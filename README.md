@@ -79,7 +79,7 @@ spriteCloud/
 │   ├── ui/                      # UI test specs
 │   └── api/                     # API test specs
 ├── tests-cucumber/              # Demo Cucumber feature files and steps
-│   ├── features/                # .feature files
+│   ├── features/                # Feature files
 │   ├── steps/                   # Step definitions
 │   └── support/                 # Hooks (page/browser setup)
 ├── pages/                       # Page Object Model classes
@@ -126,7 +126,7 @@ spriteCloud/
    npm run test:api
    ```
 
-5. **Run Cucumber demo tests only:**
+5. **Run Cucumber demo tests only (generates html report):**
 
    ```bash
    npm run test:cucumber
@@ -139,29 +139,23 @@ spriteCloud/
    npm run test:firefox
    ```
 
-7. **Generate reports:**
+7. **Generate Allure reports:**
 
    ```bash
    npm run report:allure
    ```
 
-8. **Generate reports for cucumber:**
-
-   ```bash
-   npm run report:cucumber
-   ```
-
-9. **Clean reports folder:**
+8. **Clean reports folder:**
 
    ```bash
    npm run clean:reports
    ```
 
-10. **Runs Typescript Verification:**
+9. **Runs Typescript Verification:**
 
-    ```bash
-    npm run typecheck
-    ```
+   ```bash
+   npm run typecheck
+   ```
 
 ---
 

@@ -15,8 +15,8 @@ test("@UI Full checkout flow with two items and price validation", async ({
   await loginPage.login(testData.username, testData.password);
 
   // Step 2: Add two items to cart
-  await inventoryPage.addItemToCart(testData.productName1);
-  await inventoryPage.addItemToCart(testData.productName2);
+  await inventoryPage.addItemToCart(testData.product1);
+  await inventoryPage.addItemToCart(testData.product2);
 
   // Step 3: Go to cart
   await inventoryPage.goToCart();
@@ -29,8 +29,8 @@ test("@UI Full checkout flow with two items and price validation", async ({
   );
 
   // Step 5: Validate items in cart
-  await cartPage.assertItemInCart(testData.productName1);
-  await cartPage.assertItemInCart(testData.productName2);
+  await cartPage.assertItemInCart(testData.product1);
+  await cartPage.assertItemInCart(testData.product2);
 
   // Step 6: Validate total price
   await cartPage.assertTotalPrice(testData.price);
