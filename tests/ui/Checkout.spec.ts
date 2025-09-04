@@ -1,8 +1,6 @@
 import { test } from "@playwright/test";
 import { PageObjectModel } from "../../pages/PageObjectModel";
-import rawData from "../../test-data/CheckoutTestData.json";
-
-const testData = rawData as CheckoutTestData;
+import testData from "../../test-data/CheckoutTestData.json";
 
 test("@UI Full checkout flow with two items and price validation", async ({
   page,

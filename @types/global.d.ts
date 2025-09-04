@@ -4,8 +4,6 @@ declare global {
     password: string;
   }
   interface CheckoutTestData extends BaseTestData {
-    username: string;
-    password: string;
     productName1: string;
     productName2: string;
     firstName: string;
@@ -15,6 +13,26 @@ declare global {
   }
   interface LoginFailTestData extends BaseTestData {}
   interface SortingTestData extends BaseTestData {}
+}
+
+declare module "*.json" {
+  const value: any;
+  export default value;
+}
+
+declare module "../../test-data/CheckoutTestData.json" {
+  const value: CheckoutTestData;
+  export default value;
+}
+
+declare module "../../test-data/LoginFailTestData.json" {
+  const value: LoginFailTestData;
+  export default value;
+}
+
+declare module "../../test-data/SortingTestData.json" {
+  const value: LoginFailTestData;
+  export default value;
 }
 
 export {};

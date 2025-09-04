@@ -1,8 +1,6 @@
 import { test } from "@playwright/test";
 import { PageObjectModel } from "../../pages/PageObjectModel";
-import rawData from "../../test-data/SortingTestData.json";
-
-const testData = rawData as SortingTestData;
+import testData from "../../test-data/SortingTestData.json";
 
 test("@UI Sort items by name Z-A and validate sorting", async ({ page }) => {
   const pageObjectModel = new PageObjectModel(page);

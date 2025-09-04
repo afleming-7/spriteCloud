@@ -1,8 +1,6 @@
 import { test } from "@playwright/test";
 import { PageObjectModel } from "../../pages/PageObjectModel";
-import rawData from "../../test-data/LoginFailTestData.json";
-
-const testData = rawData as LoginFailTestData;
+import testData from "../../test-data/LoginFailTestData.json";
 
 test("@UI Login fails with invalid credentials", async ({ page }) => {
   const pageObjectModel = new PageObjectModel(page);
