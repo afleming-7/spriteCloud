@@ -1,7 +1,5 @@
 import { test, expect, APIRequestContext, APIResponse } from "@playwright/test";
-import { createApiContext } from "../../utils/APIClient.js";
-
-const API_BASE: string = "https://reqres.in/api";
+import { createApiContext, API_BASE } from "../../utils/APIClient.js";
 
 test("@API Negative: login fails without password", async () => {
   const context: APIRequestContext = await createApiContext();
