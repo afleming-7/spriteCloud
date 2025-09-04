@@ -11,8 +11,8 @@
     "test:api": "npx playwright test --grep @API",
     "chromeConfig": "npx playwright test --config playwright.config.ts --project=chrome",
     "firefoxConfig": "npx playwright test --config playwright.config.ts --project=firefox",
-    "report": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report",
-    "test:cucumber": "cucumber-js tests-cucumber/features/**/*.feature --require-module ts-node/register --require tests-cucumber/steps/**/*.ts --require tests-cucumber/support/hooks.ts"
+    "report:allure": "npx allure generate ./allure-results --clean -o ./allure-report && npx allure open ./allure-report",
+    "test:cucumber": "cucumber-js tests-cucumber/features/**/*.feature --require-module ts-node/register --require tests-cucumber/steps/**/*.ts --require tests-cucumber/support/hooks.ts --format html:cucumber-report/cucumber-report.html"
   },
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "allure-commandline": "^2.34.1",
     "allure-playwright": "^3.3.3",
     "cucumber-html-reporter": "^7.2.0",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "playwright": "^1.55.0",
     "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",

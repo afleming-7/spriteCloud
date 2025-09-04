@@ -12,7 +12,7 @@ declare module "@cucumber/cucumber" {
   }
 }
 
-Before(async function () {
+Before({ tags: "@UI" }, async function () {
   // Launch a fresh browser
   this.browser = await chromium.launch({ headless: true });
 
